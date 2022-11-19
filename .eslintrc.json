@@ -1,27 +1,40 @@
 {
-	"env": {
-		"browser": true,
-		"es2021": true
-	},
-	"extends": [
-		"stylelint-config-standard-scss",
-		"plugin:react/recommended",
-		"standard-with-typescript",
-		"plugin:@typescript-eslint/recommended",
-		"plugin:prettier/recommended"
-	],
-	"overrides": [],
-	"parserOptions": {
-		"ecmaVersion": "latest",
-		"sourceType": "module"
-	},
-	"plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
-	"rules": {
-		"import/no-unresolved": "error"
-	},
-	"settings": {
-		"import/resolver": {
-			"typescript": {}
-		}
-	}
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "stylelint-config-standard-scss",
+    "plugin:react/recommended",
+    "plugin:mobx/recommended",
+    "standard-with-typescript",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier", "mobx"],
+  "rules": {
+    "import/no-unresolved": "error",
+    "react/react-in-jsx-scope": "off",
+    "camelcase": "error",
+    "spaced-comment": "error",
+    "quotes": ["error", "single"],
+    "no-duplicate-imports": "error"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
 }
