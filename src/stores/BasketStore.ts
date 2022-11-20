@@ -1,4 +1,5 @@
 import { Vehicle } from '../types/vehicles';
+import { itemBasket } from '../types/basket';
 import {
   observable,
   action,
@@ -10,20 +11,15 @@ import {
 import { nanoid } from 'nanoid';
 import { makePersistable } from 'mobx-persist-store';
 
-type BasketItem = {
-  id: string;
-  vehicle: Vehicle;
-  qty: number;
-};
 configure({
   useProxies: 'never',
 });
 
 export class BasketStore {
-  basketItems: BasketItem[] = [];
+  basketItems: itemBasket[] = [];
   qty: number = 0;
 
-  constructor(basketItems: BasketItem[]) {
+  constructor(basketItems: itemBasket[]) {
     makeAutoObservable(this, {}, { autoBind: true });
     makePersistable(this, {
       name: 'basketItems',
