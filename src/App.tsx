@@ -4,6 +4,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import ConfirmationPage from './pages/ConfirmationPage';
 import Homepage from './pages/Homepage';
 import PageLayout from './pages/PageLayout';
+import './App.css';
 
 function App() {
   return (
