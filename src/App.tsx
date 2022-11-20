@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import BasketPage from './pages/BasketPage';
 import CheckoutPage from './pages/CheckoutPage';
 import ConfirmationPage from './pages/ConfirmationPage';
 import Homepage from './pages/Homepage';
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route element={<PageLayout />}>
           <Route path="/" element={<Homepage />} />
+          <Route path="/basket" element={<BasketPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/confirmation" element={<ConfirmationPage />} />
         </Route>
