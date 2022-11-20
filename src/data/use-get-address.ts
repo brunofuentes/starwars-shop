@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import api from '../services/viacep';
 
-const useGetAddress = (cep: string | number) => {
+const useGetAddress = (cep: string | number | null) => {
   const [address, setAddress] = useState<any>(null);
 
   const refetch = useCallback(() => {
