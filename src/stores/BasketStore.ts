@@ -12,7 +12,7 @@ import { nanoid } from 'nanoid';
 import { makePersistable } from 'mobx-persist-store';
 
 configure({
-  useProxies: 'never',
+  useProxies: 'always',
 });
 
 export class BasketStore {
@@ -37,8 +37,28 @@ export class BasketStore {
     }
   };
 
+  reduceBasketItemQty = (id: string) => {
+    const item = this.basketItems.find((item) => item.id === id);
+    if (item.qty < 2) {
+      this.removeBasketItem(id);
+    } else {
+      item.qty--;
+    }
+  };
+
   removeBasketItem = (id: string) => {
     this.basketItems = this.basketItems.filter((item) => item.id !== id);
+  };
+
+  basketTotalCost = () => {
+    if (this.basketItems.length > 0)
+      return this.basketItems
+        .map((item) => item.qty * item.vehicle.cost_in_credits)
+        .reduce((a, b) => a + b);
+  };
+
+  setShowBasket = () => {
+    this.showBasket = !this.showBasket;
   };
 }
 
