@@ -12,7 +12,7 @@ const useGetVehicles = (page: number) => {
       .catch((err) => {
         console.error('Error fetching data ', err);
       });
-  }, []);
+  }, [page]);
 
   useEffect(refetch, [refetch]);
 
