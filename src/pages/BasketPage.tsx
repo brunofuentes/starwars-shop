@@ -18,12 +18,12 @@ function BasketPage() {
 
   function handleClick() {
     if (basketItems.length > 0) createOrder();
-    if (order.orderId) navigate('/checkout');
+    if (order.orderId) navigate('/registration');
   }
 
   return (
     <div className="text-gray-200 mx-auto w-full min-h-full">
-      <div className="bg-zinc-700 p-1 sm:p-3 rounded-b-md">
+      <div className="bg-zinc-700 p-1 sm:p-3 rounded-b-md opacity-90">
         <PreviousPageBtn text="Voltar para Loja" to="/" />
         <div className="font-starwars p-2">
           <h1>Suas compras</h1>
