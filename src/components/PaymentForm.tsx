@@ -24,7 +24,7 @@ function PaymentForm() {
   } = useStores();
 
   const [activeBtn, setActiveBtn] = useState<string>('');
-  function handleCardBtn(e: { target: { id: string } }) {
+  function handleCardBtn(e: any) {
     const { id } = e.target;
     setActiveBtn(id);
     setPaymentMethod(id);
@@ -36,7 +36,7 @@ function PaymentForm() {
       <p className="my-3">Método</p>
       <div className="flex gap-2 sm:w-2/5 justify-around mx-auto">
         <button
-          onClick={(e) => handleCardBtn(e)}
+          onClick={(e: React.MouseEvent<HTMLElement>) => handleCardBtn(e)}
           id="creditCard"
           className={`${
             activeBtn === 'creditCard' ? 'bg-blue-800 brightness-125 shadow-md' : 'bg-zinc-600'
@@ -45,7 +45,7 @@ function PaymentForm() {
           Cartão de crédito
         </button>
         <button
-          onClick={(e) => handleCardBtn(e)}
+          onClick={(e: React.MouseEvent<HTMLElement>) => handleCardBtn(e)}
           id="boleto"
           className={`${
             activeBtn === 'boleto' ? 'bg-blue-800 brightness-125 shadow-md' : 'bg-zinc-600'
