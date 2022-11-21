@@ -11,9 +11,10 @@ const api = {
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.log('error message: ', error.message);
+        throw error;
       } else {
         console.log('unexpected error: ', error);
-        return 'An unexpected error occurred';
+        throw new Error('An unexpected error occurred');
       }
     }
   },
