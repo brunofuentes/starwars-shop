@@ -17,14 +17,10 @@ export type Vehicle = {
   url: string;
 };
 
-export type GetVehiclesResponse =
-  | {
-      data: vehiclesData;
-      status: number;
-    }
-  | null
-  | undefined
-  | string;
+export type GetVehiclesResponse = {
+  data: vehiclesData;
+  status: number;
+};
 
 export type vehiclesData =
   | {
