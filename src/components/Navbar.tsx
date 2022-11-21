@@ -1,12 +1,8 @@
 import { observer } from 'mobx-react-lite';
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useStores } from '../providers/StoresProvider';
 
-const Navbar = observer(() => {
-  const navigate = useNavigate();
-  const [showSidebar, setShowSidebar] = useState<boolean>(false);
-
+const Navbar = () => {
   const {
     basketStore: { basketItems },
   } = useStores();
@@ -36,6 +32,6 @@ const Navbar = observer(() => {
       </div>
     </div>
   );
-});
+};
 
-export default Navbar;
+export default observer(Navbar);
