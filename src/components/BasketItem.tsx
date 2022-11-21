@@ -2,7 +2,7 @@ import { toJS } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { useStores } from '../providers/StoresProvider';
-import { itemBasket } from '../types/basket';
+import { itemBasket } from '../types/stores';
 
 function BasketItem(props: { item: itemBasket }) {
   const { item } = props;
