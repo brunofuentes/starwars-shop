@@ -14,7 +14,7 @@ const Navbar = observer(() => {
   return (
     <div className="flex justify-around p-3 bg-black text-gray-200 shadow-md sticky top-0 z-50 w-full">
       <div>
-        <Link to="/" className="font-starwars text-4xl shadow-xl text-yellow-300 brightness-200 ">
+        <Link to="/" className="font-starwars text-4xl shadow-xl text-yellow-300 brightness-200">
           STAR WARS
         </Link>
       </div>
