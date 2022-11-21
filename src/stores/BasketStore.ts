@@ -1,13 +1,6 @@
 import { Vehicle } from '../types/vehicles';
 import { itemBasket } from '../types/basket';
-import {
-  observable,
-  action,
-  runInAction,
-  makeObservable,
-  configure,
-  makeAutoObservable,
-} from 'mobx';
+import { configure, makeAutoObservable } from 'mobx';
 import { nanoid } from 'nanoid';
 import { makePersistable } from 'mobx-persist-store';
 
@@ -17,21 +10,20 @@ configure({
 
 export class BasketStore {
   basketItems: itemBasket[] = [];
-  qty: number = 0;
 
-  constructor(basketItems: itemBasket[]) {
+  constructor() {
     makeAutoObservable(this, {}, { autoBind: true });
     makePersistable(this, {
       name: 'basketItems',
       properties: ['basketItems'],
-      storage: window.localStorage,
+      storage: window.sessionStorage,
     });
   }
 
   addBasketItem = (vehicle: Vehicle) => {
     const item = this.basketItems.find((item) => item.vehicle.name === vehicle.name);
     if (!item) {
-      this.basketItems.push({ id: nanoid(), vehicle, qty: this.qty + 1 });
+      this.basketItems.push({ id: nanoid(), vehicle, qty: 1 });
     } else {
       item.qty = item.qty + 1;
     }
@@ -39,6 +31,7 @@ export class BasketStore {
 
   reduceBasketItemQty = (id: string) => {
     const item = this.basketItems.find((item) => item.id === id);
+    if (!item) return;
     if (item.qty < 2) {
       this.removeBasketItem(id);
     } else {
@@ -55,10 +48,6 @@ export class BasketStore {
       return this.basketItems
         .map((item) => item.qty * item.vehicle.cost_in_credits)
         .reduce((a, b) => a + b);
-  };
-
-  setShowBasket = () => {
-    this.showBasket = !this.showBasket;
   };
 }
 
