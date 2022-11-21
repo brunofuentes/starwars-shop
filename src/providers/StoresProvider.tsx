@@ -19,4 +19,3 @@ export const StoresProvider: React.FC<PropsWithChildren<{}>> = ({ children }) =>
 };
 
 export const useStores = () => React.useContext(StoresContext);
-
