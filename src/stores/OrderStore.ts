@@ -1,31 +1,26 @@
 import { configure, makeAutoObservable } from 'mobx';
-import { makePersistable } from 'mobx-persist-store';
+import { makePersistable, clearPersistedStore } from 'mobx-persist-store';
 import { nanoid } from 'nanoid';
-import { itemBasket } from '../types/basket';
 import { BasketStore } from './BasketStore';
-import { CustomerFormData, AddressFormValues } from '../types/forms';
+import { cardDetails, orderObject } from '../types/stores';
+import { CustomerFormData } from '../types/forms';
 
 configure({
   useProxies: 'always',
 });
 
-interface orderObject {
-  orderId: string;
-  customer: CustomerFormData | {};
-  address: AddressFormValues | {};
-  basketItems: itemBasket[];
-  orderPrice: number | string | undefined;
-  paymentMethod: string;
-}
-
 export class OrderStore {
   order: orderObject = {
     orderId: '',
     customer: {},
-    address: {},
     basketItems: [],
     orderPrice: 0,
     paymentMethod: '',
+  };
+  cardDetails: cardDetails = {
+    number: '',
+    expiration: '',
+    CVC: '',
   };
 
   constructor(private basketStore: BasketStore) {
@@ -47,11 +42,15 @@ export class OrderStore {
     this.order.customer = customer;
   };
 
-  addAddressToOrder = (address: AddressFormValues) => {
-    this.order.address = address;
-  };
-
   setPaymentMethod = (method: string) => {
     this.order.paymentMethod = method;
+  };
+
+  addPaymentDetails = (cardDetails: cardDetails) => {
+    this.cardDetails = cardDetails;
+  };
+
+  clearOrderStore = async () => {
+    await clearPersistedStore(this);
   };
 }

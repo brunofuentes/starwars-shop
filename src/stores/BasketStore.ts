@@ -1,8 +1,8 @@
 import { Vehicle } from '../types/vehicles';
-import { itemBasket } from '../types/basket';
+import { itemBasket } from '../types/stores';
 import { configure, makeAutoObservable } from 'mobx';
 import { nanoid } from 'nanoid';
-import { makePersistable } from 'mobx-persist-store';
+import { makePersistable, clearPersistedStore } from 'mobx-persist-store';
 
 configure({
   useProxies: 'always',
@@ -49,5 +49,9 @@ export class BasketStore {
         .map((item) => item.qty * item.vehicle.cost_in_credits)
         .reduce((a, b) => a + b);
   };
-}
 
+  clearBasketStore = async () => {
+    await clearPersistedStore(this);
+    this.basketItems = [];
+  };
+}
