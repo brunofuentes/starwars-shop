@@ -5,6 +5,10 @@ import { observer } from 'mobx-react';
 import useGetOneVehicle from '../data/use-get-one-vehicle';
 import useGetVehicles from '../data/use-get-vehicles';
 
+//todo: implementar função de busca, utilizando-se dos filtros da API
+//todo: (extra): query /films to get film-name or whatever and put in the card !!
+//todo (extra): adicionar componente estilo "LoadingSpinner"
+//todo: (extra): criar modal para mostrar todos os detalhes do veículo, deixando apenas alguns no VehicleCard.
 
 function Homepage() {
   const [page, setPage] = useState<number>(1);
