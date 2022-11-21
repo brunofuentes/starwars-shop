@@ -1,15 +1,6 @@
 import * as yup from 'yup';
 
-export const addressSchema = yup.object().shape({
-  CEP: yup.string().min(8, 'CEP deve ter 8 dígitos').required('CEP é Obrigatório'),
-  street: yup.string().required('Campo Obrigatório.'),
-  houseNr: yup.string().required('Campo Obrigatório.'),
-  state: yup.string().required('Campo Obrigatório.'),
-  city: yup.string().required('Campo Obrigatório.'),
-  area: yup.string().required('Campo Obrigatório.'),
-});
-
-export const customerSchema = yup.object().shape({
+export const registrationSchema = yup.object().shape({
   firstName: yup.string().min(3, 'O nome deve ter no mínimo 3 caracteres.'),
   lastName: yup.string().min(3, 'O sobrenome deve ter no mínimo 3 caracteres.'),
   cpf: yup
@@ -21,6 +12,12 @@ export const customerSchema = yup.object().shape({
     )
     .required('Campo Obrigatório.'),
   email: yup.string().email('Insira um email válido').required('Campo Obrigatório.'),
+  CEP: yup.string().min(8, 'CEP deve ter 8 dígitos').required('CEP é Obrigatório'),
+  street: yup.string().required('Campo Obrigatório.'),
+  houseNr: yup.string().required('Campo Obrigatório.'),
+  state: yup.string().required('Campo Obrigatório.'),
+  city: yup.string().required('Campo Obrigatório.'),
+  area: yup.string().required('Campo Obrigatório.'),
 });
 
 export const paymentSchema = yup.object().shape({
