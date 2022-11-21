@@ -44,9 +44,3 @@ yarn build
 ```
 
 5. Acesse a aplicação pelo navegador em: `http://localhost:5173`
-
-Testes
-
-```
-npm test
-```
