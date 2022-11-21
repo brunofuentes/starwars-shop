@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import VehiclesList from '../components/VehiclesList';
-import { useStores } from '../providers/StoresProvider';
 import { observer } from 'mobx-react';
 import useGetOneVehicle from '../data/use-get-one-vehicle';
 import useGetVehicles from '../data/use-get-vehicles';
@@ -13,7 +12,7 @@ import useGetVehicles from '../data/use-get-vehicles';
 function Homepage() {
   const [page, setPage] = useState<number>(1);
   const { vehicles } = useGetVehicles(page);
-  const { vehicle } = useGetOneVehicle(4); //todo: usar isso aqui ou não?
+  const { vehicle } = useGetOneVehicle(4);
 
   return (
     <div className="mx-auto max-w-4xl flex justify-center flex-col my-8">
