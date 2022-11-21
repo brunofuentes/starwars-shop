@@ -12,7 +12,7 @@ function RegistrationForm() {
     orderStore: { addCustomerToOrder },
   } = useStores();
 
-  function onBlurCep(event: { target: { value: string } }, setFieldValue) {
+  function onBlurCep(event: { target: { value: string } }, setFieldValue: any) {
     const { value } = event?.target;
     const cepValidated = value?.replace(/[^0-9]/g, '');
 

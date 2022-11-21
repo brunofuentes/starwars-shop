@@ -9,7 +9,7 @@ const useGetAddress = (cep: string | number) => {
     setIsLoading(true);
     api
       .getAddress(cep)
-      .then((data) => setAddress(data?.data))
+      .then((data) => setAddress(data))
       .finally(() => setIsLoading(false))
       .catch((err) => {
         console.error('Error fetching data ', err);

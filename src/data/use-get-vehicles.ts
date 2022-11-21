@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
-import { GetVehiclesResponse, vehiclesData } from '../types/vehicles';
+import { vehiclesData } from '../types/vehicles';
 import api from '../services/swapi';
 
 const useGetVehicles = (page: number) => {
-  const [vehicles, setVehicles] = useState<vehiclesData>(null);
+  const [vehicles, setVehicles] = useState<vehiclesData | null>(null);
 
   const refetch = useCallback(() => {
     api

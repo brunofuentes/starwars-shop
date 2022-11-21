@@ -8,7 +8,7 @@ const useGetOneVehicle = (id: string | number) => {
   const refetch = useCallback(() => {
     api
       .getOneVehicle(id)
-      .then((data) => setVehicle(data.data))
+      .then((data) => setVehicle(data))
       .catch((err) => {
         console.error('Error fetching data ', err);
       });
