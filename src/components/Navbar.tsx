@@ -8,11 +8,11 @@ const Navbar = observer(() => {
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
 
   const {
-    basketStore: { basketItems, showBasket, setShowBasket },
+    basketStore: { basketItems },
   } = useStores();
 
   return (
-    <div className="flex justify-around p-3 bg-black text-gray-200 shadow-md sticky top-0 z-50 w-full">
+    <div className="flex justify-around p-3 bg-zinc-900 text-gray-200 shadow-xl sticky top-0 z-50 w-full opacity-80">
       <div>
         <Link to="/" className="font-starwars text-4xl shadow-xl text-yellow-300 brightness-200">
           STAR WARS
@@ -27,9 +27,11 @@ const Navbar = observer(() => {
             src="/src/assets/icons/basket_icon.svg"
             alt=""
           />
-          <span className="">
-            <small>{basketItems.length}</small>
-          </span>
+          {basketItems.length > 0 && (
+            <span className="text-yellow-300 brightness-200">
+              <small>{basketItems.length}</small>
+            </span>
+          )}
         </Link>
       </div>
     </div>
