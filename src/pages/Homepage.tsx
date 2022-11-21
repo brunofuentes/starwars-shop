@@ -11,9 +11,7 @@ function Homepage() {
 
   const { vehicles } = useGetVehicles(page);
   return (
-    <div className="mx-auto lg:max-w-4xl flex justify-center flex-col">
-      <h1 className="text-center">Homepage</h1>
-      <p>{basketStore.basketItems.length}</p>
+    <div className="mx-auto max-w-4xl flex justify-center flex-col my-8">
       <VehiclesList vehicles={vehicles} />
       <div className="my-4 mx-auto flex">
         <button
