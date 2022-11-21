@@ -4,9 +4,21 @@ export type CustomerFormData = {
   email: string;
   phone: string;
   cpf: string | number;
+  CEP: string;
+  street: string;
+  street2: string;
+  houseNr: string | number;
+  state: string;
+  city: string;
+  area: string;
 };
 
-export type AddressFormValues = {
+export type RegistrationFormData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  cpf: string | number;
   CEP: string;
   street: string;
   street2: string;
