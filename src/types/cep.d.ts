@@ -1,4 +1,4 @@
-export type GetCEPResponse = {
+export type CEP = {
   cep: string;
   logradouro: string;
   complemento: string;
@@ -9,4 +9,8 @@ export type GetCEPResponse = {
   gia: string;
   ddd: string;
   siafi: string;
+};
+
+export type GetCEPResponse = {
+  data: CEP;
 };
