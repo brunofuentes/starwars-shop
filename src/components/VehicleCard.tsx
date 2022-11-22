@@ -1,9 +1,8 @@
-import React from 'react';
 import { Vehicle } from '../types/vehicles';
 import { useStores } from '../providers/StoresProvider';
 import { observer } from 'mobx-react-lite';
 
-const VehicleCard = observer((props: { vehicle: Vehicle }) => {
+const VehicleCard = (props: { vehicle: Vehicle }) => {
   const { vehicle } = props;
 
   const {
@@ -47,6 +46,6 @@ const VehicleCard = observer((props: { vehicle: Vehicle }) => {
       </div>
     </div>
   );
-});
+};
 
-export default VehicleCard;
+export default observer(VehicleCard);

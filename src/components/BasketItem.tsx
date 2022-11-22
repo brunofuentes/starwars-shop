@@ -1,6 +1,4 @@
-import { toJS } from 'mobx';
 import { observer } from 'mobx-react-lite';
-import React from 'react';
 import { useStores } from '../providers/StoresProvider';
 import { itemBasket } from '../types/stores';
 

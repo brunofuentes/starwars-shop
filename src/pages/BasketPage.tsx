@@ -1,7 +1,5 @@
-import { toJS } from 'mobx';
 import { observer } from 'mobx-react-lite';
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import BasketItem from '../components/BasketItem';
 import PreviousPageBtn from '../components/PreviousPageBtn';
 import { useStores } from '../providers/StoresProvider';

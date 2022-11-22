@@ -1,4 +1,3 @@
-import React from 'react';
 import { itemBasket } from '../types/stores';
 
 function OrderItem(props: { item: itemBasket }) {

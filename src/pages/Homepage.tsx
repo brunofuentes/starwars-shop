@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import VehiclesList from '../components/VehiclesList';
-import { observer } from 'mobx-react';
+import { observer } from 'mobx-react-lite';
 import useGetOneVehicle from '../data/use-get-one-vehicle';
 import useGetVehicles from '../data/use-get-vehicles';
 

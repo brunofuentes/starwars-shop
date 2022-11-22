@@ -1,6 +1,4 @@
-import { toJS } from 'mobx';
 import { observer } from 'mobx-react-lite';
-import React from 'react';
 import OrderItem from '../components/OrderItem';
 import PaymentForm from '../components/PaymentForm';
 import PreviousPageBtn from '../components/PreviousPageBtn';
